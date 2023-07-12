@@ -40,13 +40,16 @@ export function levelStr() {
 }
 
 function choiceButton() {
-  const choiceButtons: any = document.getElementsByClassName("buttons-button");
-  for (const choiceButton of choiceButtons) {
-    choiceButton.addEventListener("click", () => {
-      levelChoice = Number(choiceButton.id);
-      levelStr();
-    });
+  const choiceButtons = document.getElementsByClassName("buttons-button");
+  if (choiceButtons != null) {
+    for (const choiceButton of choiceButtons) {
+      choiceButton.addEventListener("click", () => {
+        levelChoice = Number(choiceButton.id);
+        levelStr();
+      });
+    }
   }
+
 }
 function startButton() {
   document.getElementById("start")!.addEventListener("click", () => {
