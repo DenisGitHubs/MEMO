@@ -14,7 +14,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "types": "index.d.ts",
     "dev": "webpack --mode development --watch",
     "format": "prettier —write .",
     "lint:js": "eslint ./*.js",
