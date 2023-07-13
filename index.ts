@@ -4,10 +4,11 @@ import "./styles.css";
 export {}
 declare global {
     interface Window {
-        user: any;
-        win: boolean;
-        time: Number;
-        level: number;
+        user: {
+           win?: boolean;
+           time?: string;
+           level?: number;
+        }
     }
 }
 window.user = {};

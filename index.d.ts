@@ -1,8 +1,10 @@
-export {}
+export {};
 declare global {
     interface Window {
-        win: boolean;
-        time: Number;
-        level: number;
+        user: {
+           win: boolean;
+           time: Number;
+           level: number;
+        }
     }
 }
