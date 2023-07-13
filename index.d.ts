@@ -3,7 +3,7 @@ declare global {
     interface Window {
         user: {
            win: boolean;
-           time: Number;
+           time: string;
            level: number;
         }
     }
