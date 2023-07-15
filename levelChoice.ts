@@ -1,9 +1,8 @@
 import { goGame } from "./game";
 import { randomCards, cardRandomMass } from "./random";
 import { allCardsMass } from "./cardsMass";
-import {} from "./index.d";
 window.user = {};
-export let levelChoice = 0;
+export let levelChoice: number = 0;
 export function levelStr() {
   const levelEl = document.querySelector("body");
   const levelHtml = `
@@ -42,7 +41,7 @@ export function levelStr() {
 
 function choiceButton() {
   const choiceButtons = document.getElementsByClassName("buttons-button");
-  if (choiceButtons != null) {
+  if (choiceButtons !== null) {
     for (const choiceButton of choiceButtons) {
       choiceButton.addEventListener("click", () => {
         levelChoice = Number(choiceButton.id);
@@ -50,7 +49,6 @@ function choiceButton() {
       });
     }
   }
-
 }
 function startButton() {
   document.getElementById("start")!.addEventListener("click", () => {
@@ -63,12 +61,13 @@ function startButton() {
     window.user.level = levelChoice / 3;
     randomCards(levelChoice, allCardsMass);
     cardRandomMass.push.apply(cardRandomMass, cardRandomMass);
-    shuffle(cardRandomMass);
+    const cardLength = cardRandomMass.length;
+    shuffle(cardLength);
     goGame(cardRandomMass, levelChoice);
   });
 }
-const shuffle = (cardRandomMass) => {
-  let m = cardRandomMass.length,
+const shuffle = (cardLength: number) => {
+  let m = cardLength,
     t,
     i;
 

@@ -1,7 +1,7 @@
 import { levelStr } from "./levelChoice";
-export function endGame(min, sec, win) {
-  let el: HTMLElement | null = document.querySelector("body");
-  let html = `
+export function endGame(min: number, sec: number, win: boolean) {
+  const el: HTMLElement | null = document.querySelector("body");
+  const html = `
     <div div class="end-container container center">
     <img src=${
       win ? "./cards/win.png" : "./cards/dead.png"
@@ -11,18 +11,17 @@ export function endGame(min, sec, win) {
     <div><p class="time-result"></p></div>
     <div class="container-start-button"><button class="start-button" id="start">Играть снова</button></div>
     </div>`;
-    if (el != null) {
-      el.innerHTML = el.innerHTML + html;
-      let time = document.getElementsByClassName("time-result")[0];
-      time.textContent =
-        (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
-    }
+  if (el !== null) {
+    el.innerHTML = el.innerHTML + html;
+    const time = document.getElementsByClassName("time-result")[0];
+    time.textContent =
+      (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+  }
 
-  let buttonAgain: HTMLElement | null = document.getElementById("start");
-  if (buttonAgain != null) {
+  const buttonAgain: HTMLElement | null = document.getElementById("start");
+  if (buttonAgain !== null) {
     buttonAgain.addEventListener("click", () => {
       levelStr();
     });
   }
-
 }

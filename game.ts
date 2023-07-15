@@ -1,29 +1,30 @@
 import { levelStr } from "./levelChoice";
 import { endGame } from "./endGame";
+import { CardsMass } from "./index.d";
 
-let answer;
-let checkRight;
-let timerTablo;
-let sec = 0;
-let min = 0;
-let t;
-let buttonTime;
+let answer: string | null;
+let checkRight: number;
+let timerTablo: HTMLHeadingElement | null;
+let sec: number = 0;
+let min: number = 0;
+let t: ReturnType<typeof setTimeout>;
+let buttonTime: number;
 let button;
 
-export function goGame(cardRandomMass, levelChoice) {
+export function goGame(cardRandomMass: CardsMass[], levelChoice: number) {
   checkRight = 0;
   answer = null;
   buttonTime = 5;
   clearTimeout(t);
-  let levelEl: HTMLBodyElement | null = document.querySelector("body");
+  const levelEl: HTMLBodyElement | null = document.querySelector("body");
   let levelHtml = `
     <header class="header"><div class="header-time-box"><div class="header-time-name"><p class="min-sec">min</p><p class="min-sec">sec</p></div><h1 class="timer"><time class="timer">00:00</time></h1></div><button class="header-button">5</button></header>
     <div class="cards-container center"></div>`;
-    if (levelEl != null) {
-      levelEl.innerHTML = levelHtml;
-    }
+  if (levelEl !== null) {
+    levelEl.innerHTML = levelHtml;
+  }
 
-  let levelElNext = document.getElementsByTagName("div")[2];
+  const levelElNext = document.getElementsByTagName("div")[2];
   levelHtml = cardRandomMass
     .map((card) => {
       return `<img src=${card.img} data=${card.img} class="card" alt="card">`;
@@ -31,16 +32,16 @@ export function goGame(cardRandomMass, levelChoice) {
     .join("");
 
   levelElNext.innerHTML = levelHtml;
-  let levelElNext2: HTMLBodyElement | null = document.querySelector("body");
-  if (levelElNext2 != null) {
+  const levelElNext2: HTMLBodyElement | null = document.querySelector("body");
+  if (levelElNext2 !== null) {
     levelElNext2.removeAttribute("class");
   }
 
   const buttonInterval = setInterval(() => {
     button = document.getElementsByClassName("header-button")[0];
-    button.textContent = buttonTime;
+    button.textContent = String(buttonTime);
     buttonTime--;
-    button.textContent = buttonTime;
+    button.textContent = String(buttonTime);
     if (buttonTime === 0) {
       clearInterval(buttonInterval);
       button.textContent = "Начать заново";
@@ -51,10 +52,9 @@ export function goGame(cardRandomMass, levelChoice) {
   setTimeout(hideAndShow, 5 * 1000, levelChoice);
 
   reset();
-
 }
 
-function hideAndShow(levelChoice) {
+function hideAndShow(levelChoice: number) {
   const cards = document.getElementsByClassName("card");
 
   for (const card of cards) {
@@ -112,9 +112,11 @@ function tick() {
 }
 function add() {
   tick();
-  timerTablo.textContent =
-    (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
-  timer();
+  if (timerTablo !== null) {
+    timerTablo.textContent =
+      (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
+    timer();
+  }
 }
 function timer() {
   timerTablo = document.getElementsByTagName("h1")[0];
@@ -127,7 +129,7 @@ function reset() {
   sec = 0;
   min = 0;
 }
-function goBackButton(cardRandomMass) {
+function goBackButton(cardRandomMass: CardsMass[]) {
   document.querySelector("button")!.addEventListener("click", () => {
     cardRandomMass.splice(0, 18);
     buttonTime = 5;
@@ -137,8 +139,17 @@ function goBackButton(cardRandomMass) {
   });
 }
 function hidenWhenEnd() {
-  document.querySelector("header")!.setAttribute("class", "hiden header");
-  document
-    .getElementsByClassName("cards-container")[0]
-    .setAttribute("class", "hiden cards-container center");
+  const doc = document.querySelector("header");
+  if (doc !== null) {
+    doc.setAttribute("class", "hiden header");
+    document
+      .getElementsByClassName("cards-container")[0]
+      .setAttribute("class", "hiden cards-container center");
+  }
 }
+
+function abc(a: number, b: number) {
+  const c = a + b;
+  return c;
+}
+module.exports = { abc };
