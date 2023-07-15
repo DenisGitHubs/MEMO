@@ -1,7 +1,8 @@
 import { goGame } from "./game";
 import { randomCards, cardRandomMass } from "./random";
 import { allCardsMass } from "./cardsMass";
-import {} from "./index";
+import {} from "./index.d";
+window.user = {};
 export let levelChoice = 0;
 export function levelStr() {
   const levelEl = document.querySelector("body");
