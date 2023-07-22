@@ -3,11 +3,13 @@
       "typeRoots": ["index.d.ts", "./node_modules/@types"],
       "strict": true,
       "outDir": "./dist/",
-      "noImplicitAny": false,
+      "noImplicitAny": true,
       "module": "es6",
       "target": "es6",
       "allowJs": true,
       "sourceMap": true,
-      "moduleResolution": "node"
+      "moduleResolution": "node",
+      "declaration": true,
+      "esModuleInterop": true
     },
   }

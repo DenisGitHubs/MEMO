@@ -1,7 +1,5 @@
-
 import { levelStr } from "./levelChoice";
 import "./styles.css";
-
 
 levelStr();
 

@@ -1,7 +1,9 @@
-export let cardRandomMass: string[] = [];
-export function randomCards(levelChoice, allCardsMass) {
+export const cardRandomMass: CardsMass[] = [];
+import { CardsMass } from "./index.d";
+
+export function randomCards(levelChoice: number, allCardsMass: CardsMass[]) {
   if (cardRandomMass.length < levelChoice) {
-    let rand = Math.floor(Math.random() * allCardsMass.length);
+    const rand = Math.floor(Math.random() * allCardsMass.length);
     if (cardRandomMass.includes(allCardsMass[rand])) {
       randomCards(levelChoice, allCardsMass);
     } else {
@@ -9,5 +11,5 @@ export function randomCards(levelChoice, allCardsMass) {
       randomCards(levelChoice, allCardsMass);
     }
   }
-  return;
+  return cardRandomMass;
 }

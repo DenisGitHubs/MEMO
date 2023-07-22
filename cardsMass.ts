@@ -1,4 +1,5 @@
-export const allCardsMass = [
+import { CardsMass } from "./index.d";
+export const allCardsMass: CardsMass[] = [
   { value: 6, suit: "diamonds", img: "./cards/diamonds/6.png" },
   { value: 7, suit: "diamonds", img: "./cards/diamonds/7.png" },
   { value: 8, suit: "diamonds", img: "./cards/diamonds/8.png" },
