@@ -147,9 +147,3 @@ function hidenWhenEnd() {
       .setAttribute("class", "hiden cards-container center");
   }
 }
-
-function abc(a: number, b: number) {
-  const c = a + b;
-  return c;
-}
-module.exports = { abc };

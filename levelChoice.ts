@@ -3,7 +3,7 @@ import { randomCards, cardRandomMass } from "./random";
 import { allCardsMass } from "./cardsMass";
 window.user = {};
 export let levelChoice: number = 0;
-export function levelStr() {
+export function levelStr(levelChoice?: number) {
   const levelEl = document.querySelector("body");
   const levelHtml = `
 <div class="container center">
@@ -33,8 +33,9 @@ export function levelStr() {
     </div>
     <div class="container-start-button"><button class="start-button" id="start">Старт</button></div>
 </div>`;
-  levelEl!.innerHTML = levelHtml;
-
+  if (levelEl !== null) {
+    levelEl.innerHTML = levelHtml;
+  }
   choiceButton();
   startButton();
 }

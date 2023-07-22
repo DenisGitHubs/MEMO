@@ -11,5 +11,5 @@ export function randomCards(levelChoice: number, allCardsMass: CardsMass[]) {
       randomCards(levelChoice, allCardsMass);
     }
   }
-  return;
+  return cardRandomMass;
 }
