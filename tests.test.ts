@@ -1,4 +1,5 @@
 /** @type {import('jest').Config} */
+
 const config = {
   testEnvironment: "jsdom",
   testEnvironmentOptions: {
@@ -25,36 +26,7 @@ it("should should check the number of generated maps", () => {
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const { tick } = require("./game.ts");
-it("should  check the number of cards", () => {
-  const sec: number = 60;
-  const secondSec = 0;
-  expect(tick(sec)).toBe(secondSec);
+it("should check adding second", () => {
+  const secondSec = 1;
+  expect(tick()).toBe(secondSec);
 });
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const { levelStr } = require("./levelChoice.ts");
-// describe("activeBtnClick", () => {
-//   it("adds class to the button", () => {
-//     const levelChoice: number = 3;
-//     levelStr(levelChoice);
-//     const button = document.getElementsByClassName("button")[0];
-//     expect(button.classList.contains("choice-button")).toEqual(true);
-//   });
-// });
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const { abc } = require("./game.ts");
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const { randomCards } = require("./random.ts");
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-// const { math } = require("./tren.ts");
-// it("something", () => {
-//   const a = 1;
-//   const b = 3;
-//   const c = 4;
-//   expect(abc(a, b)).toBe(c);
-// });
-// it("should", () => {
-//   const levelChoice = 3;
-//   expect(levelStr(levelChoice)).toMatch(/choice-button/);
-// });

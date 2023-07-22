@@ -3,7 +3,7 @@ import { randomCards, cardRandomMass } from "./random";
 import { allCardsMass } from "./cardsMass";
 window.user = {};
 export let levelChoice: number = 0;
-export function levelStr(levelChoice?: number) {
+export function levelStr() {
   const levelEl = document.querySelector("body");
   const levelHtml = `
 <div class="container center">

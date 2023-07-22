@@ -100,16 +100,20 @@ function hideAndShow(levelChoice: number) {
   }
 }
 
-function tick() {
-  sec++;
-  if (sec >= 60) {
-    sec = 0;
-    min++;
-    if (min >= 60) {
-      min = 0;
+export function tick() {
+  if (sec !== undefined) {
+    sec++;
+    if (sec >= 60) {
+      sec = 0;
+      min++;
+      if (min >= 60) {
+        min = 0;
+      }
     }
+    return sec;
   }
 }
+
 function add() {
   tick();
   if (timerTablo !== null) {
@@ -118,7 +122,7 @@ function add() {
     timer();
   }
 }
-function timer() {
+export function timer() {
   timerTablo = document.getElementsByTagName("h1")[0];
   t = setTimeout(add, 1000);
 }
