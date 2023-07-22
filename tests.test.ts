@@ -24,6 +24,14 @@ it("should should check the number of generated maps", () => {
 });
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const { tick } = require("./game.ts");
+it("should  check the number of cards", () => {
+  const sec: number = 60;
+  const secondSec = 0;
+  expect(tick(sec)).toBe(secondSec);
+});
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 // const { levelStr } = require("./levelChoice.ts");
 // describe("activeBtnClick", () => {
 //   it("adds class to the button", () => {
